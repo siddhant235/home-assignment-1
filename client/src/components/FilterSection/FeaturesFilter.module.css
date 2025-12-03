@@ -1,0 +1,26 @@
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.groupTitle {
+  font-size: var(--filter-subsection-font-size);
+  font-weight: var(--filter-subsection-font-weight);
+  color: var(--filter-subsection-color);
+  margin: 0;
+  text-align: left;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* Mobile - single column */
+@media (max-width: 768px) {
+  .options {
+    grid-template-columns: 1fr;
+  }
+}

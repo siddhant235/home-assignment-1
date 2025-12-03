@@ -1,0 +1,97 @@
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.groupTitle {
+  font-size: var(--filter-subsection-font-size);
+  font-weight: var(--filter-subsection-font-weight);
+  color: var(--filter-subsection-color);
+  margin: 0;
+  text-align: left;
+}
+
+.sliderContainer {
+  position: relative;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.sliderTrack {
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.sliderRange {
+  position: absolute;
+  height: 6px;
+  background-color: var(--checkbox-bg-color);
+  border-radius: 3px;
+  z-index: 2;
+  /* Range is positioned from handle center to handle center */
+  /* The left edge starts at minPercent% (min handle center) */
+  /* The width spans to maxPercent% (max handle center) */
+  /* This ensures the range touches but doesn't exceed the handles */
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background: none;
+  outline: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: var(--checkbox-bg-color);
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: all;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: var(--checkbox-bg-color);
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: all;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #666;
+}
+
+.label {
+  font-size: 14px;
+  color: #666;
+}
