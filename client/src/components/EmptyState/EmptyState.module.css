@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 400px;
-  padding: 40px 20px;
+  min-height: var(--spacing-4xl);
+  padding: var(--spacing-4xl) var(--spacing-xl);
 }
 
 .content {
@@ -11,35 +11,34 @@
 }
 
 .title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #333;
-  margin: 0 0 12px 0;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--spacing-md) 0;
 }
 
 .message {
-  font-size: 16px;
-  color: #666;
-  margin: 0 0 24px 0;
+  font-size: var(--font-size-base);
+  color: var(--color-text-tertiary);
+  margin: 0 0 var(--spacing-2xl) 0;
 }
 
 .clearButton {
-  background-color: #4caf50;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-white);
   border: none;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 500;
+  padding: var(--spacing-md) var(--spacing-2xl);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .clearButton:hover {
-  background-color: #45a049;
+  background-color: var(--color-primary-hover);
 }
 
 .clearButton:active {
   transform: scale(0.98);
 }
-

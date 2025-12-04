@@ -1,7 +1,7 @@
 .filterGroup {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-lg);
 }
 
 .groupTitle {
@@ -14,7 +14,7 @@
 
 .sliderContainer {
   position: relative;
-  height: 40px;
+  height: var(--size-sm);
   display: flex;
   align-items: center;
 }
@@ -22,17 +22,17 @@
 .sliderTrack {
   position: absolute;
   width: 100%;
-  height: 6px;
-  background-color: #e0e0e0;
-  border-radius: 3px;
+  height: var(--size-slider-track);
+  background-color: var(--color-bg-tertiary);
+  border-radius: var(--radius-sm);
   z-index: 1;
 }
 
 .sliderRange {
   position: absolute;
-  height: 6px;
+  height: var(--size-slider-track);
   background-color: var(--checkbox-bg-color);
-  border-radius: 3px;
+  border-radius: var(--radius-sm);
   z-index: 2;
   /* Range is positioned from handle center to handle center */
   /* The left edge starts at minPercent% (min handle center) */
@@ -43,8 +43,8 @@
 .slider {
   position: absolute;
   width: 100%;
-  height: 6px;
-  background: none;
+  height: var(--size-slider-track);
+  background: var(--color-bg-transparent);
   outline: none;
   pointer-events: none;
   -webkit-appearance: none;
@@ -54,13 +54,13 @@
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: var(--size-xs);
+  height: var(--size-xs);
   background-color: var(--checkbox-bg-color);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   cursor: pointer;
   pointer-events: all;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-sm);
   transition: transform 0.1s;
 }
 
@@ -69,14 +69,14 @@
 }
 
 .slider::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
+  width: var(--size-xs);
+  height: var(--size-xs);
   background-color: var(--checkbox-bg-color);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   cursor: pointer;
   pointer-events: all;
   border: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-sm);
   transition: transform 0.1s;
 }
 
@@ -87,11 +87,11 @@
 .labels {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
-  color: #666;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
 }
 
 .label {
-  font-size: 14px;
-  color: #666;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
 }

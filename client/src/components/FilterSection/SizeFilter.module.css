@@ -1,7 +1,7 @@
 .filterGroup {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-lg);
 }
 
 .groupTitle {
@@ -9,53 +9,77 @@
   font-weight: var(--filter-subsection-font-weight);
   color: var(--filter-subsection-color);
   margin: 0;
+  text-align: left;
 }
 
 .inputs {
   display: flex;
-  gap: 12px;
+  gap: var(--gap-md);
 }
 
-.inputGroup {
-  flex: 1;
+.inputWrapper {
+  position: relative;
+  width: var(--size-input-width);
+  height: var(--size-input-height);
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-primary);
+  padding: var(--padding-input-vertical) var(--padding-input-horizontal);
+  gap: var(--gap-sm);
 }
 
-.label {
-  font-size: 14px;
-  color: #666;
-  font-weight: 500;
+.inputWrapper:focus-within {
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus-green);
+}
+
+.inputWrapper.error {
+  border-color: var(--color-border-error);
+}
+
+.inputWrapper.error:focus-within {
+  border-color: var(--color-border-error);
+  box-shadow: var(--shadow-focus-red);
 }
 
 .input {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 16px;
-  font-family: inherit;
-  width: 100%;
-}
-
-.input:focus {
+  flex: 1;
+  min-width: 0;
+  border: none;
   outline: none;
-  border-color: #4caf50;
-  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
+  background: transparent;
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  color: var(--color-text-secondary);
+  padding: 0;
+  text-align: left;
 }
 
-.inputError {
-  border-color: #e74c3c;
+.input::placeholder {
+  color: transparent;
 }
 
-.inputError:focus {
-  border-color: #e74c3c;
-  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1);
+.inputLabel {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.inputUnit {
+  font-size: var(--font-size-base);
+  color: var(--color-text-tertiary);
+  white-space: nowrap;
+  flex-shrink: 0;
+  pointer-events: none;
 }
 
 .error {
-  color: #e74c3c;
-  font-size: 14px;
-  margin-top: -8px;
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  margin-top: calc(-1 * var(--spacing-sm));
 }
-

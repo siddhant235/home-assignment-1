@@ -1,23 +1,23 @@
 .filterSection {
-  background: transparent;
+  background: var(--color-bg-transparent);
   padding: 0;
   height: fit-content;
   position: sticky;
-  top: 24px;
+  top: var(--spacing-2xl);
 }
 
 .title {
   font-size: var(--filter-heading-font-size);
   font-weight: var(--filter-heading-font-weight);
-  margin: 0 0 24px 0;
-  color: #000;
+  margin: 0 0 var(--spacing-2xl) 0;
+  color: var(--color-black);
   text-align: left;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: var(--spacing-3xl);
 }
 
 /* Mobile */
@@ -26,4 +26,3 @@
     position: static;
   }
 }
-

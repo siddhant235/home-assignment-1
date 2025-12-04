@@ -1,7 +1,7 @@
 .filterGroup {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-lg);
 }
 
 .groupTitle {
@@ -15,7 +15,7 @@
 .options {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: var(--gap-lg);
 }
 
 /* Mobile - single column */

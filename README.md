@@ -1,189 +1,133 @@
-# Real Estate Search - Frontend Take-Home Assignment
+# Real Estate Property Search
 
-Welcome! In this assignment, you'll build a property search interface for a real estate platform.
+A responsive property search interface with advanced filtering, smooth animations, and accessibility features.
 
-## Time Consideration
+## 🚀 Installation & Running
 
-**Maximum Time: 4-6 hours**
+```bash
+# Navigate to client directory
+cd client
 
-We value your time! If this assignment takes you more than 6 hours, please submit whatever you have at that point. Focus on quality over quantity - we'd rather see a few features done well than everything done poorly.
+# Install dependencies
+npm install
 
-Be sure to include a README explaining what you prioritized and what you'd improve with more time.
+# Start development server
+npm run dev
 
-## Design Reference
-
-[Access the Figma design here](https://www.figma.com/design/vl5S1jD6PfEw6njaiUjnFQ/Home-Assignment---1?node-id=0-1&t=YaMx6UysuO0Ea9oT-1)
-
-You'll need to sign in to Figma to view the design details (colors, spacing, fonts). Your implementation should match the design as closely as possible. If you choose to deviate from the design, please explain your reasoning in your README.
-
-**Note:** The design shows the desktop layout. You'll need to create a reasonable mobile layout yourself.
-
-## What We're Providing
-
-1. **Property Data**: A JSON file (`properties.json`) with 40 property listings
-2. **Project Structure**: Feel free to use any framework (React, Vue, Svelte, etc.) or start from scratch
-3. **Libraries**: You may use any libraries you prefer. We won't penalize you for using component libraries or UI frameworks
-
-## Getting Started
-
-1. Fork this repository
-2. Set up your project in the `client` directory
-3. The property data is located at `data/properties.json`
-4. Install dependencies and start coding!
-
-## Tasks Overview
-
-Complete these tasks in order. If you can't finish everything, that's okay - we prioritize quality over completeness.
-
-### Must Complete (Core Requirements)
-
-1. **Property Grid**
-   - Display properties in a responsive grid layout
-   - Each card should show: image, title, location, price, and favorite button
-   - Match the design as closely as possible
-
-2. **Type of Place Filter**
-   - Implement checkbox filtering for property types
-   - "All" checkbox should deselect other options when checked
-   - Checking any specific type should uncheck "All"
-   - Filter the property grid based on selections
-
-3. **Features Filter**
-   - Implement multi-select checkboxes for property features
-   - Properties should match if they have ALL selected features
-
-4. **Responsive Layout**
-   - Make the layout work on mobile devices (320px+)
-   - Consider a drawer/modal for filters on mobile
-
-5. **Price Range Slider**
-   - Implement a dual-handle range slider
-   - Sync slider with the $100 and $10000 input fields
-   - You may use a library (e.g., rc-slider, react-range) or build it yourself
-   - Filter properties within the selected price range
-
-6. **Size Filter**
-   - Implement Min and Max square footage inputs
-   - Validate that Min doesn't exceed Max
-   - Filter properties within the size range
-
-7. **Empty States**
-   - Show a message when no properties match the filters
-   - Consider adding a "Clear Filters" button
-
-8. **Favorite Toggle**
-   - Heart icon should toggle between filled/unfilled state
-   - State should persist during the session (doesn't need to persist after refresh)
-
-### Bonus (Nice to Have)
-
-9. **Smooth Animations**
-   - Animate filter panel open/close on mobile
-   - Fade in/out properties when filters change
-   - Smooth transitions on hover states
-
-10. **Advanced State Management**
-    - Persist filter state in URL query parameters
-    - Allow sharing filtered results via URL
-
-11. **Loading States**
-    - Simulate async filtering with a brief loading state
-    - Show skeleton screens while "loading"
-
-12. **Accessibility**
-    - Keyboard navigation for filters
-    - Proper ARIA labels
-    - Focus management
-
-## Property Data Structure
-
-Each property in `properties.json` has the following structure:
-
-```json
-{
-  "id": "prop_001",
-  "title": "Modern Downtown Loft",
-  "type": "Apartment",
-  "price": 3500,
-  "size": 1200,
-  "location": "San Francisco",
-  "image": "https://example.com/image.jpg",
-  "features": ["Ac & Heating", "Dishwasher", "Pool"]
-}
+# Build for production
+npm run build
 ```
 
-### Available Property Types:
-- Building
-- Apartment
-- Office
-- Shop
-- House
+The app will be available at `http://localhost:5173` (or the port shown in terminal).
 
-### Available Features:
-- Ac & Heating
-- Dishwasher
-- Balcony
-- Fitness Center
-- Clubhouse
-- Spa
-- Pool
-- Valet Parking
+## 📦 Libraries & Why
 
-## Technical Requirements
+- **React 19** - Modern React with latest features
+- **Vite** - Fast build tool and dev server
+- **Zustand** - Lightweight state management (no boilerplate, perfect for this use case)
+- **React Icons** - Icon library for consistent UI elements
+- **CSS Modules** - Scoped styling without additional dependencies
 
-- Use modern JavaScript (ES6+) / React
-- Write clean, maintainable code
-- Use semantic HTML
-- Ensure responsive design
-- Handle edge cases gracefully
+## 🎯 What I Prioritized
 
-## Evaluation Criteria
+### 1. **Core Functionality First**
 
-We'll evaluate your submission based on:
+- All required filters (Type, Features, Price, Size)
+- Proper filtering logic with edge case handling
+- Responsive design with mobile drawer
 
-1. **Code Quality** (30%)
-   - Clean, readable, well-organized code
-   - Appropriate component structure
-   - Proper separation of concerns
-   - Good naming conventions
+### 2. **Performance Optimization**
 
-2. **Functionality** (25%)
-   - Do the filters work correctly?
-   - Is the filtering logic sound?
-   - Are edge cases handled?
+- Memoized components to prevent unnecessary re-renders
+- Custom equality functions for Zustand selectors
+- Optimized filter components to only re-render when their specific state changes
 
-3. **Design Implementation** (20%)
-   - How closely does it match the Figma design?
-   - Attention to detail (spacing, colors, typography)
-   - Responsive behavior
+### 3. **User Experience**
 
-4. **User Experience** (15%)
-   - Intuitive interactions
-   - Smooth transitions
-   - Loading and empty states
-   - Error handling
+- Smooth animations for drawer and property grid
+- Loading states with skeleton screens
+- URL synchronization for shareable filtered results
+- Keyboard navigation and ARIA labels for accessibility
 
-5. **State Management** (10%)
-   - Appropriate choice of state management approach
-   - Efficient re-renders
-   - Clean data flow
+### 4. **Code Quality**
 
-## Submission Guidelines
+- Clean component structure with separation of concerns
+- Reusable hooks and utilities
+- Type-safe state management
 
-**Please do not submit a pull request to this repository.**
+## 🔮 What I'd Improve with More Time
 
-1. Complete your work in your forked repository
-2. Include a README.md that explains:
-   - How to install and run your project
-   - What you prioritized and why
-   - What you would improve/do differently with more time
-   - Any assumptions you made
-   - Libraries you chose and why
-3. Ensure your code runs based on the instructions in your README
-4. Share the URL to your GitHub repository with us
+1. **Testing**
 
-## Questions?
+   - Unit tests for filter logic
+   - Integration tests for user flows
+   - E2E tests for critical paths
 
-If you have any questions or need clarification, please reply to same thread. We're happy to help!
+2. **Performance**
 
-Good luck, and we look forward to seeing your work! 🏡
+   - Virtual scrolling for large property lists
+   - Image lazy loading and optimization
+   - Debouncing for price/size range inputs
+
+3. **Features**
+
+   - Sort functionality (price, size, date)
+   - Pagination or infinite scroll
+   - Advanced filters (location, amenities)
+   - Property detail modal/page
+   - Favorite persistence (localStorage/backend)
+
+4. **Accessibility**
+
+   - Screen reader testing with real devices
+   - High contrast mode support
+   - Reduced motion preferences
+
+5. **Code**
+   - TypeScript migration for type safety
+   - Storybook for component documentation
+   - Better error boundaries and error handling
+
+## 💡 Assumptions Made
+
+1. **Data Structure**: Properties JSON is static and loaded once on mount
+2. **Favorites**: Session-only persistence (no backend/localStorage)
+3. **Browser Support**: Modern browsers (ES6+ support)
+4. **Design**: Mobile layout created based on desktop design patterns
+5. **Performance**: Optimized for ~40 properties (no pagination needed)
+6. **Accessibility**: WCAG 2.1 AA compliance targeted
+
+## 🏗️ Project Structure
+
+```
+client/src/
+├── components/       # Reusable UI components
+├── hooks/           # Custom React hooks
+├── store/           # Zustand state management
+├── utils/           # Utility functions
+├── views/           # Page-level components
+└── data/            # Configuration data
+```
+
+## ✨ Key Features Implemented
+
+- ✅ All core filters (Type, Features, Price Range, Size)
+- ✅ Responsive design with mobile drawer
+- ✅ Smooth animations and transitions
+- ✅ URL state synchronization
+- ✅ Loading states with skeletons
+- ✅ Full keyboard navigation
+- ✅ ARIA labels and focus management
+- ✅ Performance optimizations
+- ✅ Empty states
+
+## 📝 Notes
+
+- Filter state persists in URL for easy sharing
+- All filter components are optimized to prevent unnecessary re-renders
+- Mobile drawer includes focus trap and keyboard navigation
+- Property cards only re-render when their favorite status changes
+
+---
+
+Built with ❤️ using React and modern web technologies.

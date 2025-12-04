@@ -6,12 +6,37 @@ const initialState = {
   selectedFeatures: new Set(),
   priceRange: [filterConfig.priceRange.min, filterConfig.priceRange.max],
   sizeRange: [filterConfig.sizeRange.min, filterConfig.sizeRange.max],
+  priceRangeConfig: {
+    min: filterConfig.priceRange.min,
+    max: filterConfig.priceRange.max,
+  },
 };
 
-export const useFilterStore = create((set) => ({
+export const useFilterStore = create((set, get) => ({
   ...initialState,
+  isLoading: false,
 
-  updatePropertyTypes: (typeId, isChecked) => {
+  setLoading: (loading) => {
+    set({ isLoading: loading });
+  },
+
+  setPriceRangeConfig: (min, max) => {
+    set((state) => {
+      const newPriceRangeConfig = { min, max };
+      // Update current price range if it exceeds new max
+      const currentRange = state.priceRange;
+      const updatedRange = [
+        Math.min(currentRange[0], max),
+        Math.min(currentRange[1], max),
+      ];
+      return {
+        priceRangeConfig: newPriceRangeConfig,
+        priceRange: updatedRange,
+      };
+    });
+  },
+
+  updatePropertyTypes: (typeId, isChecked, skipLoading = false) => {
     set((state) => {
       const newSelectedTypes = new Set(state.selectedTypes);
 
@@ -34,11 +59,19 @@ export const useFilterStore = create((set) => ({
         }
       }
 
+      // Simulate async filtering (skip during URL initialization)
+      if (!skipLoading) {
+        get().setLoading(true);
+        setTimeout(() => {
+          get().setLoading(false);
+        }, 250);
+      }
+
       return { selectedTypes: newSelectedTypes };
     });
   },
 
-  updateFeatures: (feature, isChecked) => {
+  updateFeatures: (feature, isChecked, skipLoading = false) => {
     set((state) => {
       const newSelectedFeatures = new Set(state.selectedFeatures);
       if (isChecked) {
@@ -46,25 +79,50 @@ export const useFilterStore = create((set) => ({
       } else {
         newSelectedFeatures.delete(feature);
       }
+
+      // Simulate async filtering (skip during URL initialization)
+      if (!skipLoading) {
+        get().setLoading(true);
+        setTimeout(() => {
+          get().setLoading(false);
+        }, 250);
+      }
+
       return { selectedFeatures: newSelectedFeatures };
     });
   },
 
-  updatePriceRange: (range) => {
+  updatePriceRange: (range, skipLoading = false) => {
     set({ priceRange: range });
+
+    // Simulate async filtering (skip during URL initialization)
+    if (!skipLoading) {
+      get().setLoading(true);
+      setTimeout(() => {
+        get().setLoading(false);
+      }, 250);
+    }
   },
 
-  updateSizeRange: (range) => {
+  updateSizeRange: (range, skipLoading = false) => {
     set({ sizeRange: range });
+
+    // Simulate async filtering (skip during URL initialization)
+    if (!skipLoading) {
+      get().setLoading(true);
+      setTimeout(() => {
+        get().setLoading(false);
+      }, 250);
+    }
   },
 
   clearFilters: () => {
-    set({
+    set((state) => ({
       selectedTypes: new Set(["all"]),
       selectedFeatures: new Set(),
-      priceRange: [filterConfig.priceRange.min, filterConfig.priceRange.max],
+      priceRange: [state.priceRangeConfig.min, state.priceRangeConfig.max],
       sizeRange: [filterConfig.sizeRange.min, filterConfig.sizeRange.max],
-    });
+    }));
   },
 }));
 
