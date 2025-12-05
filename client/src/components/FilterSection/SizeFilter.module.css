@@ -58,7 +58,8 @@
 }
 
 .input::placeholder {
-  color: transparent;
+  color: var(--color-text-tertiary);
+  opacity: 1;
 }
 
 .inputLabel {

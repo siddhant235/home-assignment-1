@@ -55,7 +55,6 @@ export const SizeFilter = memo(() => {
       </h3>
       <div className={styles.inputs}>
         <div className={`${styles.inputWrapper} ${error ? styles.error : ""}`}>
-          <span className={styles.inputLabel}>Min</span>
           <input
             id="size-min-input"
             type="number"
@@ -64,6 +63,7 @@ export const SizeFilter = memo(() => {
             onChange={handleMinChange}
             min={min}
             max={max}
+            placeholder="Min"
             aria-label="Minimum square footage"
             aria-invalid={error ? "true" : "false"}
             aria-describedby={error ? "size-error" : undefined}
@@ -71,7 +71,6 @@ export const SizeFilter = memo(() => {
           <span className={styles.inputUnit}>sq ft</span>
         </div>
         <div className={`${styles.inputWrapper} ${error ? styles.error : ""}`}>
-          <span className={styles.inputLabel}>Max</span>
           <input
             id="size-max-input"
             type="number"
@@ -80,6 +79,7 @@ export const SizeFilter = memo(() => {
             onChange={handleMaxChange}
             min={min}
             max={max}
+            placeholder="Max"
             aria-label="Maximum square footage"
             aria-invalid={error ? "true" : "false"}
             aria-describedby={error ? "size-error" : undefined}
